@@ -26,6 +26,9 @@ const App = () => {
     }
   };
 
+  // Sort data alphabetically
+  const sortedData = data && data.results.slice().sort((a, b) => a.name.localeCompare(b.name));
+
   return (
     <div className="flex gbr text-black justify-center items-center w-full h-screen bg-gray-100 background-image fixed">
       <div className="w-full max-w-md p-4 bg-white rounded-lg shadow-lg opacity-90">
@@ -37,7 +40,7 @@ const App = () => {
           className="w-full p-2 border border-gray-300 rounded-md mb-4"
         >
           <option value="">Select a Pokémon</option>
-          {data && data.results.map(pokemon => (
+          {sortedData && sortedData.map(pokemon => (
             <option key={pokemon.name} value={pokemon.url}>
               {pokemon.name}
             </option>
